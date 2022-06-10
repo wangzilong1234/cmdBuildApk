@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class CmdBuild : MonoBehaviour
+public class CmdBuild
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    [MenuItem("Cmd/Build",false,1)]
+    public static void PerformBuild() {
+        string[] scenes = { "Assets/Scenes/SampleScene.unity" };
+        BuildPipeline.BuildPlayer(scenes, "cmd.apk",BuildTarget.Android,BuildOptions.None);
     }
 }
